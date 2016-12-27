@@ -1,17 +1,19 @@
 import React from 'react'
 import Head from 'next/head'
 
-export default({children}) => (
+import { Menu, Container } from 'semantic-ui-react'
+
+export default({ children }) => (
   <div>
     <Head>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
-      <link href="/static/styles.css" rel="stylesheet" type="text/css" />
+      <link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css" rel="stylesheet" />
     </Head>
-    <header>
-      <h1>{children}</h1>
-    </header>
-    <style jsx>{`
-      h1 { font-weight: 100; }
-    `}</style>
+    <Menu secondary inverted fixed="top" color="teal">
+      <Container fluid>
+        <Menu.Item header>KK-Pedia</Menu.Item>
+        <Menu.Item name='Latest' />
+      </Container>
+    </Menu>
   </div>
 )

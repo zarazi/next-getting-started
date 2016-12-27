@@ -1,12 +1,18 @@
 import React from 'react'
 
+import { Segment, Container } from 'semantic-ui-react'
+
 export default ({ children }) => (
   <div>
-    <footer>
-      <p>{ children }</p>
-    </footer>
+    <Segment inverted vertical color="teal">
+      <Container textAlign="right">
+        <p>kengkode.com</p>
+      </Container>
+    </Segment>
     <style jsx>{`
-      p { font-size: 9px; }
+      p { 
+        font-weight: bold;
+      }
     `}</style>
   </div>
 )

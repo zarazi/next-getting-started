@@ -1,7 +1,12 @@
 import React from 'react'
-import { footerStyles } from '../styles/styles'
+
 export default ({ children }) => (
-  <footer className={ footerStyles }>
-    <p>Footer Test: { children }</p>
-  </footer>
+  <div>
+    <footer>
+      <p>{ children }</p>
+    </footer>
+    <style jsx>{`
+      p { font-size: 9px; }
+    `}</style>
+  </div>
 )

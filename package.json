@@ -1,0 +1,16 @@
+{
+  "name": "getting-started",
+  "description": "",
+  "author": "Isara Settavittayanukit <zarazi@hotmail.com> (http://zarazi.lnwkode.com/)",
+  "license": "MIT",
+
+  "version": "0.1.0",
+
+  "scripts": {
+    "dev": "next"
+  },
+
+  "dependencies": {
+    "next": "1.2.3"
+  }
+}

@@ -11,7 +11,6 @@ export default ({ title, children }) => (
     <Head>
       <title>{title}</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
       <link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css" rel="stylesheet" />
     </Head>
     <Header />

@@ -5,7 +5,6 @@ import { Input, Menu, Container } from 'semantic-ui-react'
 
 export default class HeaderMenu extends Component {
   handleItemClick = (e, { name }) => Router.push(name)
-
   render() {
     const route = this.props.pathname
     return (

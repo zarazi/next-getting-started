@@ -4,11 +4,7 @@ import { Header } from 'semantic-ui-react'
 import Page from '../layouts/main'
 
 export default class extends React.Component {
-  static async getInitialProps ( url ) {
-  }
-  constructor (props) {
-     super(props)
-  }  
+  static async getInitialProps( url ) {}
   render() {
     return (
       <Page pathname={this.props.url.pathname} title={`Story`}>

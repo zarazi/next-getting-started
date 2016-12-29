@@ -47,7 +47,7 @@ const MainContent = () => (
   </Segment>
 )
 
-const MinorContent = () => {
+const MinorContent = () => (
   <Segment vertical padded>
     <Header as="h5">มันมีที่มาอย่างไร</Header>
     <p>
@@ -57,4 +57,4 @@ const MinorContent = () => {
       ทำให้มันมีอายุถึงกว่า 2000 ปีเลยทีเดียว ริชาร์ด แมคคลินท็อค ศาสตราจารย์ชาว ...
     </p>
   </Segment>
-}
+)

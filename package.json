@@ -11,6 +11,7 @@
     "deploy": "now"
   },
   "dependencies": {
+    "isomorphic-fetch": "2.2.1",
     "next": "^2.0.0-beta",
     "semantic-ui-react": "0.63.1"
   }

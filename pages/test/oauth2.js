@@ -22,7 +22,7 @@ export default class extends React.Component {
       let props = { pathname, query }
 
       if (query && query.code) {
-        const data = `code=${query.code}&client_id=851176135124-4mo0crdo5vst9pfqndd6uifti3ugjofg.apps.googleusercontent.com&client_secret=dLGx41mFlWYlo_Zc4vpG0NMB&redirect_uri=http%3A%2F%2Flocalhost%3A3030%2Foauth2&grant_type=authorization_code`
+        const data = `code=${query.code}&client_id=851176135124-4mo0crdo5vst9pfqndd6uifti3ugjofg.apps.googleusercontent.com&client_secret=dLGx41mFlWYlo_Zc4vpG0NMB&redirect_uri=http%3A%2F%2Flocalhost%3A3030%2Ftest%2Foauth2&grant_type=authorization_code`
         const res = await fetch( 'https://www.googleapis.com/oauth2/v4/token', {
           method: 'POST',
           headers: {

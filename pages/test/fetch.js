@@ -8,7 +8,7 @@ export default class extends React.Component {
         method: 'POST'
       })
     const data = await res.json()
-    return { data }
+    return { data , isServer: !!req}
   }
 
   state = {}
@@ -16,7 +16,8 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-        { JSON.stringify(this.props.data) }
+        <pre>{ this.props.isServer===true ? 'Server' : 'Client' }</pre>
+        <pre>{ JSON.stringify(this.props.data) }</pre>
       </div>
     )
   }

@@ -1,18 +1,29 @@
 import React from 'react'
+import 'isomorphic-fetch'
 import Head from 'next/head'
 import {Header, Grid, Segment, Divider} from 'semantic-ui-react'
 import Page from '../layouts/main'
+import BlockContent from '../components/block-content'
 
 export default class extends React.Component {
-  static async getInitialProps( url ) {}
+  static async getInitialProps({ req }) {
+    const res = await fetch('https://script.google.com/macros/s/AKfycbzvjpiMT5DFMdEQXbFoeICOPJY6Q3Qhk6psRgMiKjiFEhovUDY/exec', {
+        method: 'POST'
+      })
+    const data = await res.json()
+    const isServer = !!req
+    return { data , isServer}
+  }
+
   render() {
+    const which = this.props.isServer ? '[S]' : '[C]'
     return (
       <Page pathname={this.props.url.pathname} title={`KK-Pedia`}>
-        <Header as="h1" dividing>Latest Story</Header>
+        <Header as="h1" dividing>{ which } Latest Story</Header>
         <Grid stackable divided relaxed>
           <Grid.Row stretched>
             <Grid.Column width="10">
-              { [1,2,3].map( i => <MainContent key={i} />) }
+              { this.props.data.map( ({id,name,text}) => <BlockContent key={id} name={name} text={text}/>) }
             </Grid.Column>
             <Grid.Column width="6">
               { [1,2,3,4,5].map( i => <MinorContent key={i} />) }

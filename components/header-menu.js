@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Link from 'next/link'
+import Link, { prefetch } from 'next/prefetch'
 import Router, { route } from 'next/router'
 import { Input, Menu, Container } from 'semantic-ui-react'
 
 export default class HeaderMenu extends Component {
-  handleItemClick = (e, { name }) => Router.push(name)
+  handleItemClick = (e, { name }) => setTimeout(() => Router.push(name), 100)
   render() {
     const route = this.props.pathname
     return (
@@ -21,6 +21,9 @@ export default class HeaderMenu extends Component {
             </Menu.Menu>
           </Container>
         </Menu>
+        {
+          prefetch('/story')
+        }
       </div>
     )
   }

@@ -5,9 +5,12 @@ import {Header, Grid, Segment, Divider} from 'semantic-ui-react'
 import Page from '../layouts/main'
 import BlockContent from '../components/block-content'
 
+const URL_KKPEDIA_2 = 'https://script.google.com/macros/s/AKfycbzvjpiMT5DFMdEQXbFoeICOPJY6Q3Qhk6psRgMiKjiFEhovUDY/exec';
+const URL_KKPEDIA_3 = 'https://script.google.com/macros/s/AKfycbwtHU7yTNFy7-Nya7cyIyLuVa8uQk_Pz-hwDJizd1E9nDuA-mw/exec';
+
 export default class extends React.Component {
   static async getInitialProps({ req }) {
-    const res = await fetch('https://script.google.com/macros/s/AKfycbzvjpiMT5DFMdEQXbFoeICOPJY6Q3Qhk6psRgMiKjiFEhovUDY/exec', {
+    const res = await fetch(URL_KKPEDIA_2, {
         method: 'POST'
       })
     const data = await res.json()

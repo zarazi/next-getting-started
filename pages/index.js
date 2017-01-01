@@ -10,8 +10,12 @@ const URL_KKPEDIA_3 = 'https://script.google.com/macros/s/AKfycbwtHU7yTNFy7-Nya7
 
 export default class extends React.Component {
   static async getInitialProps({ req }) {
-    const res = await fetch(URL_KKPEDIA_2, {
-        method: 'POST'
+    const res = await fetch(URL_KKPEDIA_3, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'action=listRecentStory&domain=kanchanapisek.or.th'
       })
     const data = await res.json()
     const isServer = !!req
@@ -26,7 +30,8 @@ export default class extends React.Component {
         <Grid stackable divided relaxed>
           <Grid.Row stretched>
             <Grid.Column width="10">
-              { this.props.data.map( ({id,name,text}) => <BlockContent key={id} name={name} text={text}/>) }
+              { this.props.data && this.props.data.length && 
+                this.props.data.map( ({id,name,text}) => <BlockContent key={id} name={name} text={text}/>) }
             </Grid.Column>
             <Grid.Column width="6">
               { [1,2,3,4,5].map( i => <MinorContent key={i} />) }

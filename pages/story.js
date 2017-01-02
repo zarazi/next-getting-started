@@ -3,6 +3,7 @@ import 'isomorphic-fetch'
 import Head from 'next/head'
 import { Header } from 'semantic-ui-react'
 import Page from '../layouts/main'
+import nl2br from 'react-nl2br'
 
 const URL_KKPEDIA_3 = 'https://script.google.com/macros/s/AKfycbwtHU7yTNFy7-Nya7cyIyLuVa8uQk_Pz-hwDJizd1E9nDuA-mw/exec';
 
@@ -21,6 +22,7 @@ export default class extends React.Component {
       return { data , isServer}
     }
   }
+
   render() {
     const which = this.props.isServer ? '[S]' : '[C]'
     return (
@@ -30,7 +32,7 @@ export default class extends React.Component {
           ? !this.props.data.error
             ? <div>
                 <Header as="h1" dividing>{ which } { this.props.data.name || 'No title'}</Header>
-                <p>{ this.props.data.text || 'No text' }</p>
+                { this.props.data.text.map(t=> <p>{nl2br(t)}</p>) }
               </div>
             : <pre>{this.props.data.error}</pre>
           : <pre>No data found!</pre>

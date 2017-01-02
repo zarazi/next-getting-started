@@ -1,7 +1,7 @@
 import React from 'react'
 import 'isomorphic-fetch'
 import Head from 'next/head'
-import { Header } from 'semantic-ui-react'
+import { Header, Divider } from 'semantic-ui-react'
 import Page from '../layouts/main'
 import nl2br from 'react-nl2br'
 
@@ -37,6 +37,7 @@ export default class extends React.Component {
             : <pre>{this.props.data.error}</pre>
           : <pre>No data found!</pre>
         }
+        <Divider hidden />
       </Page>
     )
   }

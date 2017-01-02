@@ -3,7 +3,7 @@ import 'isomorphic-fetch'
 import Head from 'next/head'
 import {Header, Grid, Segment, Divider} from 'semantic-ui-react'
 import Page from '../layouts/main'
-import BlockContent from '../components/block-content'
+import { BlockOverview, BlockLink } from '../components/block-content'
 
 const URL_KKPEDIA_2 = 'https://script.google.com/macros/s/AKfycbzvjpiMT5DFMdEQXbFoeICOPJY6Q3Qhk6psRgMiKjiFEhovUDY/exec';
 const URL_KKPEDIA_3 = 'https://script.google.com/macros/s/AKfycbwtHU7yTNFy7-Nya7cyIyLuVa8uQk_Pz-hwDJizd1E9nDuA-mw/exec';
@@ -28,16 +28,20 @@ export default class extends React.Component {
       <Page pathname={this.props.url.pathname} title={`KK-Pedia`}>
         <Header as="h1" dividing>{ which } Latest Story</Header>
         <Grid stackable divided relaxed>
-          <Grid.Row stretched>
+          <Grid.Row>
             <Grid.Column width="10">
               { this.props.data && this.props.data.length && 
                 this.props.data.map( ({id,name,text}) => 
-                  <BlockContent key={id} name={name} text={text} href={`/story?id=${id}`} />
+                  <BlockOverview key={id} name={name} text={text} href={`/story?id=${id}`} />
                 )
               }
             </Grid.Column>
             <Grid.Column width="6">
-              { [1,2,3,4,5].map( i => <MinorContent key={i} />) }
+              { this.props.data && this.props.data.length && 
+                this.props.data.map( ({id,name,text}) => 
+                  <BlockLink key={id} name={name} href={`/story?id=${id}`} />
+                )
+              }
             </Grid.Column>
           </Grid.Row>
         </Grid>

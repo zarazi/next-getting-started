@@ -1,9 +1,12 @@
 import React from 'react'
+import Link, { prefetch } from 'next/prefetch'
 import { Segment, Header } from 'semantic-ui-react'
 
-export default ({ name, text, onClick }) => (
+export default ({ href, name, text, onClick }) => (
   <Segment vertical padded>
-    <Header as="h3"><a className="story-link" onClick={onClick}>{ name }</a></Header>
+    <Header as="h3">
+      <Link href={href}><a className="story-link">{ name }</a></Link>
+    </Header>
     <p>{ text }</p>
     <style jsx>{`
     .story-link {

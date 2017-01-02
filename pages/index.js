@@ -22,11 +22,6 @@ export default class extends React.Component {
     return { data , isServer}
   }
 
-  handleClick = (e, id) => {
-    e.preventDefault()
-    this.props.url.push('/story?id=' + id)
-  }
-
   render() {
     const which = this.props.isServer ? '[S]' : '[C]'
     return (
@@ -37,7 +32,7 @@ export default class extends React.Component {
             <Grid.Column width="10">
               { this.props.data && this.props.data.length && 
                 this.props.data.map( ({id,name,text}) => 
-                  <BlockContent key={id} name={name} text={text} onClick={(e)=>this.handleClick(e, id)}/>
+                  <BlockContent key={id} name={name} text={text} href={`/story?id=${id}`} />
                 )
               }
             </Grid.Column>
